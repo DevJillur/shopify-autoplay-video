@@ -1,0 +1,45 @@
+{% if section.settings.html5_video != blank %}
+<div class="autoplay-video-wrapper">
+<video width="100%" autoplay muted loop playsinline id="myVideo">
+  <source src="{{ section.settings.html5_video }}" type="video/mp4">
+</video>
+<div class="video-overlay"></div>
+</div>
+{% endif %}
+
+<style>
+
+  .autoplay-video-wrapper {
+    position: relative;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000014;
+    z-index: 999;
+  }
+
+</style>
+
+{% schema %}
+  {
+    "name": "Autoplay video",
+    "class": "section-atplay-video",
+    "settings": [
+      {
+        "type": "text",
+        "id": "html5_video",
+        "label": "MP4 File URL"
+      }
+    ],
+    "presets": [{
+      "name": "Autoplay video",
+      "category": "Video",
+      "settings": {
+      }
+    }]
+  }
+{% endschema %}
